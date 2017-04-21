@@ -36,16 +36,16 @@ def print_board(board):
             print(char, end='')
         print()
 
-def wsad(char, x_pos, y_pos):
-    if char == 's' and y_pos < 18:
+def wsad(board, char, x_pos, y_pos):
+    if char == 's' and  " " in board[x_pos][y_pos +1]:
         y_pos += 1
-    elif char == 'w' and y_pos > 1:
+    elif char == 'w' and " " in board[x_pos][y_pos - 1]:
         y_pos -= 1
-    elif char == 'a' and x_pos > 1:
+    elif char == 'a' and " "  in board[x_pos - 1][y_pos]:
         x_pos -= 1
-    elif char == 'd' and x_pos < 18:
+    elif char == 'd' and " "  in board[x_pos + 1][y_pos]:
         x_pos += 1
-    elif char == 'p':
+    elif char == "p":
         exit()
     return x_pos, y_pos
 
@@ -60,14 +60,14 @@ def main():
     char = ''
     x_pos = 10
     y_pos = 10
-    while char != 'X':
+    while True:
         char = getch()
-        x_pos, y_pos = wsad(char, x_pos, y_pos)
         board = create_board(20, 20)
+        x_pos, y_pos = wsad(board,char, x_pos, y_pos)
         board_with_player = insert_player(board, x_pos, y_pos)
         os.system('clear')
         print_board(board_with_player)
-        
+
 
 
 main()
