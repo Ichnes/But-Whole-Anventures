@@ -1,0 +1,13 @@
+Witaj w But Whole Adventures podrózniku !
+
+Aby umożliwić Ci pełną immersję z naszą grą przygotowaliśmy krótki poradnik.
+
+Funkcje ruchu dostępne są pod klawiszami w,s,a,d.
+W - wykonuje ruch do góry
+S - wykonuje ruch do dołu
+A - wykonuje ruch w lewo
+D - wykonuje ruch w prawo
+
+Gra przeprowadzi Cię przez które wprowadzenie w fabułę, oraz ekran wyboru postaci, gdzie podejmiesz decyzję, jakim bohaterem wyruszysz w przygodę. Zaczynamy mając 100 punktów zdrowia. Gdy zobaczysz, że z ilością tychże punktów nie jest za dobrze, w grze zaimplementowaliśmy specjalne potiony przywracające określoną ilośc życia. W zależności o klasy postaci, oraz od przebiegu gry, będziesz zbierać przedmioty do ekwipunku. W grze znajdziesz także złoto, które będziesz mógł zużyc w panelu sklepu, z Twojego ekwipinku!
+
+Powodzenia!
