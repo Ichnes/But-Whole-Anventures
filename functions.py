@@ -1,5 +1,6 @@
 import sys
 import time
+import os
 def delay_print(file_name ="Fabula.txt"):
     with open(file_name) as story:
         for line in story:
@@ -47,5 +48,23 @@ def character_creation():
             break
         else:
             print("\nplease, choose only 1,2,3 or 4")
+            os.system('clear')
             creation = False
+
     return player
+
+def interaction_with_items(live,inventory,board,x_pos,y_pos):
+    if board[x_pos][y_pos] == "💩":
+        inventory["poo"] += 1
+        live -= 7
+    elif board[x_pos][y_pos] == "♥":
+        live = 100
+    elif board[x_pos][y_pos] == "💣":
+        inventory["money"] += 1
+    return live, inventory
+
+
+
+"""def live(player,live,board, level):
+    if level == 1:
+pass"""
