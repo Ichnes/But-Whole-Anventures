@@ -1,73 +1,127 @@
 from random import randint
-from time import sleep
 import os
-
-def create_board(width, height):
-    board = []
-    for row in range(0,height):
-        board_row = []
-        for column in range(0,width):
-            if row == 0 or row == height-1:
-                board_row.append('X')
-            else:
-                if column == 0 or column == height-1:
-                    board_row.append('X')
-                else:
-                    board_row.append(' ')
-        board.append(board_row)
-    return board
-
-def getch():
-    import sys, tty, termios
-    fd = sys.stdin.fileno()
-    old_settings = termios.tcgetattr(fd)
-    try:
-        tty.setraw(sys.stdin.fileno())
-        ch = sys.stdin.read(1)
-    finally:
-        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-    return ch
+import functions
+import time
+class Colour:
+   PURPLE = '\033[95m'
+   CYAN = '\033[96m'
+   DARKCYAN = '\033[36m'
+   BLUE = '\033[94m'
+   GREEN = '\033[92m'
+   YELLOW = '\033[93m'
+   RED = '\033[91m'
+   BOLD = '\033[1m'
+   UNDERLINE = '\033[4m'
+   END = '\033[0m'
 
 
+def create_board(filename="mapa.txt"):
+    with open(filename,"r") as mapa:
+        the_map_list = []
+        for line in mapa.readlines():
+            list_of_chars = []
+            for char in line:
+                if char != "\n":
+                    list_of_chars.append(char)
+            the_map_list.append(list_of_chars)
+    return the_map_list
 
 def print_board(board):
     for row in board:
         for char in row:
+            if char == "♥":
+                char = Colour.RED + "♥" + Colour.END
+            elif char == "💩":
+                char == Colour.GREEN + "💩" + Colour.END
+            elif char == "💣":
+                char == Colour.YELLOW + "💣" + Colour.END
             print(char, end='')
         print()
 
 def wsad(board, char, x_pos, y_pos):
-    if char == 's' and  " " in board[x_pos][y_pos +1]:
+    board[x_pos][y_pos] = " "
+    movable_items = [" ","💩","♥","💣"]
+    if char == 'd' and  board[x_pos][y_pos +1] in movable_items:
         y_pos += 1
-    elif char == 'w' and " " in board[x_pos][y_pos - 1]:
+    elif char == 'a' and board[x_pos][y_pos - 1] in movable_items:
         y_pos -= 1
-    elif char == 'a' and " "  in board[x_pos - 1][y_pos]:
+    elif char == 'w' and board[x_pos - 1][y_pos] in movable_items:
         x_pos -= 1
-    elif char == 'd' and " "  in board[x_pos + 1][y_pos]:
+    elif char == 's' and board[x_pos + 1][y_pos] in movable_items:
         x_pos += 1
     elif char == "p":
         exit()
-    return x_pos, y_pos
+    return board, x_pos, y_pos
 
 
 
-def insert_player(board, width, height):
-    board[height][width] = '@'
+def insert_player(board, x_pos, y_pos,player):
+    board[x_pos][y_pos] = player
     return board
 
 
-def main():
-    char = ''
-    x_pos = 10
-    y_pos = 10
-    while True:
-        char = getch()
-        board = create_board(20, 20)
-        x_pos, y_pos = wsad(board,char, x_pos, y_pos)
-        board_with_player = insert_player(board, x_pos, y_pos)
+def level_1():
+    global inv
+    life = 100
+    char = ""
+    x_pos = 1
+    y_pos = 1
+    board = create_board()
+    #functions.delay_print("Fabula.txt")
+    #time.sleep(1)
+    #os.system('clear')
+    while char!= "p":
+        if board[18][34] == player:
+            os.system('clear')
+            return
+        if life <= 0:
+            os.system('clear')
+            print("GAME OVER")
+            return
+        char = functions.getch()
+        board,x_pos, y_pos = wsad(board,char, x_pos, y_pos)
+        life,inv = functions.interaction_with_items(life,inv,board,x_pos,y_pos)
+
+        board_with_player = insert_player(board, x_pos, y_pos,player)
         os.system('clear')
         print_board(board_with_player)
+        print("y:", x_pos)
+        print("x", y_pos)
+        print(inv, "   życie: " ,life)
+
+def level_2():
+    global inv
+    life = 100
+    char = ""
+    x_pos = 1
+    y_pos = 1
+    board = create_board("mapa2.txt")
+    #functions.delay_print("Fabula.txt")
+    #time.sleep(1)
+    #os.system('clear')
+    while char!= "p":
+        '''if board[18][34] == player:
+            os.system('clear')
+            return'''
+        if life <= 0:
+            os.system('clear')
+            print("GAME OVER")
+            return
+        char = functions.getch()
+        board,x_pos, y_pos = wsad(board,char, x_pos, y_pos)
+        life,inv = functions.interaction_with_items(life,inv,board,x_pos,y_pos)
+
+        board_with_player = insert_player(board, x_pos, y_pos,player)
+        os.system('clear')
+        print_board(board_with_player)
+        print("y:", x_pos)
+        print("x", y_pos)
+        print(inv, "   życie: " ,life)
 
 
-
-main()
+player = functions.character_creation()
+os.system("clear")
+inv = {"money":0,"poo":0,"secret key":0,""}
+#level_1()
+#os.system('clear')
+level_2()

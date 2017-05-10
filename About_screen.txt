@@ -1,0 +1,45 @@
+#########################################################################
+#/ Wydarzenia przedstawione w grze, są oparte na faktach autentycznych.\#
+#/                                                                     \#
+#/                           Twórcami gry są:                          \#
+#/                  Konrad Łękawski, oraz Łukasz Inglot                \#
+#/                                                                     \#
+#/                        Scenariusz i reżyseria:                      \#
+#/                  Konrad Łękawski, oraz Łukasz Inglot                \#
+#/                                                                     \#
+#/                         Kierownik produkcji:                        \#
+#/                  Konrad Łękawski, oraz Łukasz Inglot                \#
+#/                                                                     \#
+#/                          System operacyjny:                         \#
+#/                                Ubuntu                               \#
+#/                                                                     \#
+#/                               Muzyka:                               \#
+#/                  Konrad Łękawski & Łukasz Inglot Band               \#
+#/                                                                     \#
+#/                       Scenariusz adaptowany:                        \#
+#/                  Konrad Łękawski, oraz Łukasz Inglot                \#
+#/                                                                     \#
+#/                         Projekt poziomów:                           \#
+#/                  Konrad Łękawski, oraz Łukasz Inglot                \#
+#/                                                                     \#
+#/                          Projekt postaci:                           \#
+#/                ASII & Konrad Łękawski, oraz Łukasz Inglot           \#
+#/                                                                     \#
+#/                          Główni graficy:                            \#
+#/                  Konrad Łękawski, oraz Łukasz Inglot                \#
+#/                                                                     \#
+#/                         Graficy poboczni:                           \#
+#/                  Konrad Łękawski, oraz Łukasz Inglot                \#
+#/                                                                     \#
+#/                      Konsultacje graficzne:                         \#
+#/                  Konrad Łękawski, oraz Łukasz Inglot                \#
+#/                                                                     \#
+#/                      Konsultacje fabularne:                         \#
+#/                  Konrad Łękawski, oraz Łukasz Inglot                \#
+#/                                                                     \#
+#/                              Montaż:                                \#
+#/                  Konrad Łękawski, oraz Łukasz Inglot                \#
+#########################################################################
+
+
+
