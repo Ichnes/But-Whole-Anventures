@@ -4,6 +4,7 @@ import functions
 import time
 import mini_game
 import highscore
+
 class Colour:
    PURPLE = '\033[95m'
    CYAN = '\033[96m'
@@ -66,7 +67,7 @@ def level(player,inv,board_name,file_name,inv_X,inv_Y,ret_X,ret_Y):
     y_pos = 1
     board = create_board(board_name)
     functions.delay_print(file_name)
-    time.sleep(7)
+    time.sleep(15)
     os.system('clear')
     functions.delay_print("click_to_start.txt")
     while char!= "p":
@@ -102,13 +103,13 @@ def level_3(player,inv):
 
 
 def level_4(player,inv):
-    level(player,inv,"mapa5.txt","rozdzial3.txt",1,100,27,91)
+    level(player,inv,"mapa5.txt","rozdzial4.txt",1,100,27,91)
 
 
 def main():
     inv = {"kupa":50,"dupa":25}
     functions.delay_print("how_to_play.txt")
-    time.sleep(5)
+    time.sleep(20)
     os.system('clear')
     functions.delay_print("wybor_postaci.txt")
     player = functions.character_creation()
@@ -121,8 +122,8 @@ def main():
     mini_game.rock_paper_scissors()
     level_4(player,inv)
     mini_game.random_number()
-    functions.delay_print("About_screen.txt")
-    time.sleep(5)
+    functions.delay_print("rozdzial5.txt")
+    time.sleep(14)
     os.system('clear')
     functions.delay_print("About_screen.txt")
 
